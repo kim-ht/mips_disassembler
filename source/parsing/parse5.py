@@ -1,0 +1,84 @@
+#!/usr/bin/python
+import re
+
+data = '''
+/* Divide Word: SSSSSS sssss ttttt 00 0000 0000 011010 */
+#define MASK_DIV            0b00000000000000000000000000011010
+#define MASK_DIV_FORM       0b11111100000000001111111111111111
+#define MASK_DIV_RS         0b00000011111000000000000000000000
+#define MASK_DIV_RT         0b00000000000111110000000000000000
+
+/* Divide Unsigned Word: SSSSSS sssss ttttt 00 0000 0000 DDDDDD */
+#define MASK_DIVU           0b00000000000000000000000000011011
+#define MASK_DIVU_FORM      0b11111100000000001111111111111111
+#define MASK_DIVU_RS        0b00000011111000000000000000000000
+#define MASK_DIVU_RT        0b00000000000111110000000000000000
+
+/* Multiply and Add Word to Hi,Lo */
+#define MASK_MADD           0b01110000000000000000000000000000
+#define MASK_MADD_FORM      0b11111100000000001111111111111111
+#define MASK_MADD_RS        0b00000011111000000000000000000000
+#define MASK_MADD_RT        0b00000000000111110000000000000000
+
+/* Multiply and Add Unsigned Word to Hi,Lo */
+#define MASK_MADDU          0b01110000000000000000000000000001
+#define MASK_MADDU_FORM     0b11111100000000001111111111111111
+#define MASK_MADDU_RS       0b00000011111000000000000000000000
+#define MASK_MADDU_RT       0b00000000000111110000000000000000
+
+/* Multiply and Subtract Word to Hi,Lo: SSSSSS sssss ttttt 00000 00000 MMMMMM */
+#define MASK_MSUB          0b01110000000000000000000000000100
+#define MASK_MSUB_FORM     0b11111100000000001111111111111111
+#define MASK_MSUB_RS       0b00000011111000000000000000000000
+#define MASK_MSUB_RT       0b00000000000111110000000000000000
+
+/* Multiply and Subtract Unsigned Word to Hi,Lo: SSSSSS sssss ttttt 00000 00000 MMMMMM */
+#define MASK_MSUBU          0b01110000000000000000000000000101
+#define MASK_MSUBU_FORM     0b11111100000000001111111111111111
+#define MASK_MSUBU_RS       0b00000011111000000000000000000000
+#define MASK_MSUBU_RT       0b00000000000111110000000000000000
+
+/* Multiply Word: SSSSSS sssss ttttt 00 0000 0000 MMMMMM */
+#define MASK_MULT           0b00000000000000000000000000011000
+#define MASK_MULT_FORM      0b11111100000000001111111111111111
+#define MASK_MULT_RS        0b00000011111000000000000000000000
+#define MASK_MULT_RT        0b00000000000111110000000000000000
+
+/* Multiply Unsigned Word: SSSSSS sssss ttttt 00 0000 0000 MMMMMM */
+#define MASK_MULTU          0b00000000000000000000000000011001
+#define MASK_MULTU_FORM     0b11111100000000001111111111111111
+#define MASK_MULTU_RS       0b00000011111000000000000000000000
+#define MASK_MULTU_RT       0b00000000000111110000000000000000
+'''
+
+mask = '0b11111100000000001111111111111111'
+i = 77
+n = 5
+
+tmp_l = re.findall('MASK_([0-9A-Z]+_FP|[0-9A-Z]+)', data)
+my_set = set()
+l = []
+for e in tmp_l:
+    if e not in my_set:
+        l.append(e)
+        my_set.add(e)
+print l
+
+print '/* ' + mask + ' */'
+for s in l:
+    print '#define ID_' + s + '  ' + str(i)
+    i += 1
+
+print '#define FindCorrespondingMnemonic'+ str(n) +'(code) {  \\'
+print '    switch ( code & ' + mask + ' ) {  \\'
+
+for s in l:
+    print '    case MASK_' + s + ':  \\'
+    print '        return ID_' + s + ';  \\'
+
+print '    }  \\'
+print '}'
+
+
+
+

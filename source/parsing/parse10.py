@@ -1,0 +1,84 @@
+#!/usr/bin/python
+import re
+
+data = '''
+/* Branch on FP False: CCCCCC BBBBB ccc n t oooooooooooooooo */
+#define MASK_BC1F           0b01000101000000000000000000000000
+#define MASK_BC1F_FORM      0b11111111111000110000000000000000
+#define MASK_BC1F_CC        0b00000000000111000000000000000000
+#define MASK_BC1F_OFFSET    0b00000000000000001111111111111111
+
+/* Branch on FP False Likely: CCCCCC BBBBB ccc n t oooooooooooooooo */
+#define MASK_BC1FL          0b01000101000000100000000000000000
+#define MASK_BC1FL_FORM     0b11111111111000110000000000000000
+#define MASK_BC1FL_CC       0b00000000000111000000000000000000
+#define MASK_BC1FL_OFFSET   0b00000000000000001111111111111111
+
+/* Branch on FP True: CCCCCC BBBBB ccc n t oooooooooooooooo */
+#define MASK_BC1T           0b01000101000000010000000000000000
+#define MASK_BC1T_FORM      0b11111111111000110000000000000000
+#define MASK_BC1T_CC        0b00000000000111000000000000000000
+#define MASK_BC1T_OFFSET    0b00000000000000001111111111111111
+
+/* Branch on FP True Likely: CCCCCC BBBBB ccc n t oooooooooooooooo */
+#define MASK_BC1TL          0b01000101000000110000000000000000
+#define MASK_BC1TL_FORM     0b11111111111000110000000000000000
+#define MASK_BC1TL_CC       0b00000000000111000000000000000000
+#define MASK_BC1TL_OFFSET   0b00000000000000001111111111111111
+
+/* Branch on COP2 False: CCCCCC BBBBB ccc n t oooooooooooooooo */
+#define MASK_BC2F           0b01001001000000000000000000000000
+#define MASK_BC2F_FORM      0b11111111111000110000000000000000
+#define MASK_BC2F_CC        0b00000000000111000000000000000000
+#define MASK_BC2F_OFFSET    0b00000000000000001111111111111111
+
+/* Branch on COP2 False Likely: CCCCCC BBBBB ccc n t oooooooooooooooo */
+#define MASK_BC2FL          0b01001001000000100000000000000000
+#define MASK_BC2FL_FORM     0b11111111111000110000000000000000
+#define MASK_BC2FL_CC       0b00000000000111000000000000000000
+#define MASK_BC2FL_OFFSET   0b00000000000000001111111111111111
+
+/* Branch on COP2 True: CCCCCC BBBBB ccc n t oooooooooooooooo */
+#define MASK_BC2T           0b01001001000000010000000000000000
+#define MASK_BC2T_FORM      0b11111111111000110000000000000000
+#define MASK_BC2T_CC        0b00000000000111000000000000000000
+#define MASK_BC2T_OFFSET    0b00000000000000001111111111111111
+
+/* Branch on COP2 True Likely: CCCCCC BBBBB ccc n t oooooooooooooooo */
+#define MASK_BC2TL          0b01001001000000110000000000000000
+#define MASK_BC2TL_FORM     0b11111111111000110000000000000000
+#define MASK_BC2TL_CC       0b00000000000111000000000000000000
+#define MASK_BC2TL_OFFSET   0b00000000000000001111111111111111
+'''
+
+mask = '0b11111111111000110000000000000000'
+i = 117
+n = 10
+
+tmp_l = re.findall('MASK_([0-9A-Z]+_FP|[0-9A-Z]+)', data)
+my_set = set()
+l = []
+for e in tmp_l:
+    if e not in my_set:
+        l.append(e)
+        my_set.add(e)
+print l
+
+print '/* ' + mask + ' */'
+for s in l:
+    print '#define ID_' + s + '  ' + str(i)
+    i += 1
+
+print '#define FindCorrespondingMnemonic'+ str(n) +'(code) {  \\'
+print '    switch ( code & ' + mask + ' ) {  \\'
+
+for s in l:
+    print '    case MASK_' + s + ':  \\'
+    print '        return ID_' + s + ';  \\'
+
+print '    }  \\'
+print '}'
+
+
+
+
