@@ -2,7 +2,6 @@
  * by kimht
  */
 
-
 ///////////////////////////////////////////////////////////////////////////////
 /// includes
 ///////////////////////////////////////////////////////////////////////////////
@@ -11,6 +10,14 @@
 ///////////////////////////////////////////////////////////////////////////////
 /// macro functions
 ///////////////////////////////////////////////////////////////////////////////
+
+/*
+ * FindCorrespondingMnemonicInMask0 - Its find corresponding mnemonic from
+ *                                    mask0.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask0(code) {  \
     switch ( code & 0b11111100000000000000011111111111 ) {  \
     case MASK_ADDU:  \
@@ -48,6 +55,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask1 - Its find corresponding mnemonic from
+ *                                    mask1.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask1(code) {  \
     switch ( code & 0b11111100000000000000000000000000 ) {  \
     case MASK_ADDI:  \
@@ -127,6 +141,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask2 - Its find corresponding mnemonic from
+ *                                    mask2.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask2(code) {  \
     switch ( code & 0b11111111111111110000000000000000 ) {  \
     case MASK_B:  \
@@ -136,6 +157,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask3 - Its find corresponding mnemonic from
+ *                                    mask3.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask3(code) {  \
     switch ( code & 0b11111100000111110000000000000000 ) {  \
     case MASK_BGEZ:  \
@@ -177,6 +205,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask4 - Its find corresponding mnemonic from
+ *                                    mask4.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask4(code) {  \
     switch ( code & 0b11111111111000000000000000111111 ) {  \
     case MASK_SLL:  \
@@ -190,6 +225,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask5 - Its find corresponding mnemonic from
+ *                                    mask5.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask5(code) {  \
     switch ( code & 0b11111100000000001111111111111111 ) {  \
     case MASK_DIV:  \
@@ -211,6 +253,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask6 - Its find corresponding mnemonic from
+ *                                     mask6.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask6(code) {  \
     switch ( code & 0b11111100000111110000000000111111 ) {  \
     case MASK_ABS_FP:  \
@@ -240,6 +289,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask7 - Its find corresponding mnemonic from
+ *                                    mask7.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask7(code) {  \
     switch ( code & 0b11111100000000110000011111111111 ) {  \
     case MASK_MOVF:  \
@@ -253,6 +309,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask8 - Its find corresponding mnemonic from
+ *                                    mask8.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask8(code) {  \
     switch ( code & 0b11111100000111111111100000111111 ) {  \
     case MASK_JR:  \
@@ -260,6 +323,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask9 - Its find corresponding mnemonic from
+ *                                    mask9.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask9(code) {  \
     switch ( code & 0b11111100000000000000000000111111 ) {  \
     case MASK_ADD_FP:  \
@@ -295,6 +365,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask10 - Its find corresponding mnemonic from
+ *                                     mask10.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask10(code) {  \
     switch ( code & 0b11111111111000110000000000000000 ) {  \
     case MASK_BC1F:  \
@@ -316,6 +393,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask11 - Its find corresponding mnemonic from
+ *                                     mask11.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask11(code) {  \
     switch ( code & 0b11111111111000000000011111111111 ) {  \
     case MASK_CFC1:  \
@@ -335,6 +419,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask12 - Its find corresponding mnemonic from
+ *                                     mask12.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask12(code) {  \
     switch ( code & 0b11111111111000000000011111111000 ) {  \
     case MASK_MFC0:  \
@@ -348,6 +439,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask13 - Its find corresponding mnemonic from
+ *                                     mask13.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask13(code) {  \
     switch ( code & 0b11111111111111111111111111111111 ) {  \
     case MASK_DERET:  \
@@ -369,6 +467,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask14 - Its find corresponding mnemonic from
+ *                                     mask14.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask14(code) {  \
     switch ( code & 0b11111100000000000000000011110000 ) {  \
     case MASK_COND:  \
@@ -376,6 +481,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask15 - Its find corresponding mnemonic from
+ *                                     mask15.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask15(code) {  \
     switch ( code & 0b11111111111000000000000000000000 ) {  \
     case MASK_LUI:  \
@@ -383,6 +495,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask16 - Its find corresponding mnemonic from
+ *                                     mask16.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask16(code) {  \
     switch ( code & 0b11111110000000000000000000000000 ) {  \
     case MASK_COP2:  \
@@ -390,6 +509,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask17 - Its find corresponding mnemonic from
+ *                                     mask17.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask17(code) {  \
     switch ( code & 0b11111111111111110000011111111111 ) {  \
     case MASK_MFHI:  \
@@ -399,6 +525,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask18 - Its find corresponding mnemonic from
+ *                                     mask18.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask18(code) {  \
     switch ( code & 0b11111100000111111111111111111111 ) {  \
     case MASK_MTHI:  \
@@ -408,6 +541,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask19 - Its find corresponding mnemonic from
+ *                                     mask19.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask19(code) {  \
     switch ( code & 0b11111111111111111111100000111111 ) {  \
     case MASK_SYNC:  \
@@ -415,6 +555,13 @@
     }  \
 }
 
+/*
+ * FindCorrespondingMnemonicInMask20 - Its find corresponding mnemonic from
+ *                                     mask20.
+ *
+ * @code - Machine code to find mnemonic.
+ * @return - It returns mnemonic identifier.
+ */
 #define FindCorrespondingMnemonicInMask20(code) {  \
     switch ( code & 0b11111110000000000000000000111111 ) {  \
     case MASK_WAIT:  \
@@ -425,41 +572,202 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+/// function declarations
+///////////////////////////////////////////////////////////////////////////////
+static void ParseRsRtRd(int code, struct operands_t *);
+static void ParseRsRtImm(int code, struct operands_t *);
+static void ParseRsRtOffset(int code, struct operands_t *);
+static void ParseBaseOpOffset(int code, struct operands_t *);
+static void ParseIdx(int code, struct operands_t *);
+static void ParseBaseRtOffset(int code, struct operands_t *);
+static void ParseBaseFtOffset(int code, struct operands_t *);
+static void ParseBaseHintOffset(int code, struct operands_t *);
+static void ParseOffset(int code, struct operands_t *);
+static void ParseRsOffset(int code, struct operands_t *);
+static void ParseRsImm(int code, struct operands_t *);
+static void ParseRtRdSa(int code, struct operands_t *);
+static void ParseRsRt(int code, struct operands_t *);
+static void ParseFmtFsFd(int code, struct operands_t *);
+static void ParseRsRdHint(int code, struct operands_t *);
+static void ParseRsCcRd(int code, struct operands_t *);
+static void ParseRsHint(int code, struct operands_t *);
+static void ParseFmtFtFsFd(int code, struct operands_t *);
+static void ParseCode20(int code, struct operands_t *);
+static void ParseFmtRtFsFd(int code, struct operands_t *);
+static void ParseRsRtCode10(int code, struct operands_t *);
+static void ParseCcOffset(int code, struct operands_t *);
+static void ParseRtFs(int code, struct operands_t *);
+static void ParseRtRdSel(int code, struct operands_t *);
+static void ParseFmtFtFsCcCond(int code, struct operands_t *);
+static void ParseRtImm(int code, struct operands_t *);
+static void ParseCofun(int code, struct operands_t *);
+static void ParseRd(int code, struct operands_t *);
+static void ParseRs(int code, struct operands_t *);
+static void ParseStype(int code, struct operands_t *);
+static void ParseImp(int code, struct operands_t *);
+
+///////////////////////////////////////////////////////////////////////////////
 /// variables
 ///////////////////////////////////////////////////////////////////////////////
 
 /*
- * mask_form_array
+ * Call table for parsing operands from machine code.
  */
-
-/*
-static int masks[] = {
-    0b11111100000000000000011111111111,
-    0b11111100000000000000000000000000,
-    0b11111111111111110000000000000000,
-    0b11111100000111110000000000000000,
-    0b11111111111000000000000000111111,
-    0b11111100000000001111111111111111,
-    0b11111100000111110000000000111111,
-    0b11111100000000110000011111111111,
-    0b11111100000111111111100000111111,
-    0b11111100000000000000000000111111,
-    0b11111111111000110000000000000000,
-    0b11111111111000000000011111111111,
-    0b11111111111000000000011111111000,
-    0b11111111111111111111111111111111,
-    0b11111100000000000000000011110000,
-    0b11111111111000000000000000000000,
-    0b11111110000000000000000000000000,
-    0b11111111111111110000011111111111,
-    0b11111100000111111111111111111111,
-    0b11111111111111111111100000111111,
-    0b11111110000000000000000000111111
+static void (*GetOperandFromCodeTable[])(int, struct operands_t *) = {
+    &ParseRsRtRd,  /* 0... */
+    &ParseRsRtRd,
+    &ParseRsRtRd,
+    &ParseRsRtRd,
+    &ParseRsRtRd,
+    &ParseRsRtRd,  /* 5... */
+    &ParseRsRtRd,
+    &ParseRsRtRd,
+    &ParseRsRtRd,
+    &ParseRsRtRd,
+    &ParseRsRtRd,  /* 10... */
+    &ParseRsRtRd,
+    &ParseRsRtRd,
+    &ParseRsRtRd,
+    &ParseRsRtRd,
+    &ParseRsRtRd,  /* 15... */
+    &ParseRsRtImm,
+    &ParseRsRtImm,
+    &ParseRsRtImm,
+    &ParseRsRtOffset,
+    &ParseRsRtOffset,  /* 20... */
+    &ParseRsRtOffset,
+    &ParseRsRtOffset,
+    &ParseBaseOpOffset,
+    &ParseIdx,
+    &ParseIdx,  /* 25... */
+    &ParseBaseRtOffset,
+    &ParseBaseRtOffset,
+    &ParseBaseFtOffset,
+    &ParseBaseRtOffset,
+    &ParseBaseRtOffset,  /* 30... */
+    &ParseBaseRtOffset,
+    &ParseBaseRtOffset,
+    &ParseBaseRtOffset,
+    &ParseBaseRtOffset,
+    &ParseBaseRtOffset,  /* 35... */
+    &ParseBaseRtOffset,
+    &ParseBaseRtOffset,
+    &ParseRsRtImm,
+    &ParseBaseHintOffset,
+    &ParseBaseFtOffset,  /* 40... */
+    &ParseBaseFtOffset,
+    &ParseBaseFtOffset,
+    &ParseBaseFtOffset,
+    &ParseBaseFtOffset,
+    &ParseRsRtImm,  /* 45... */
+    &ParseRsRtImm,
+    &ParseBaseRtOffset,
+    &ParseBaseRtOffset,
+    &ParseBaseRtOffset,
+    &ParseBaseRtOffset,  /* 50... */
+    &ParseBaseRtOffset,
+    &ParseRsRtImm,
+    &ParseOffset,
+    &ParseOffset,
+    &ParseRsOffset,  /* 55... */
+    &ParseRsOffset,
+    &ParseRsOffset,
+    &ParseRsOffset,
+    &ParseRsOffset,
+    &ParseRsOffset,  /* 60... */
+    &ParseRsOffset,
+    &ParseRsOffset,
+    &ParseRsOffset,
+    &ParseRsOffset,
+    &ParseRsOffset,  /* 65... */
+    &ParseRsOffset,
+    &ParseRsImm,
+    &ParseRsImm,
+    &ParseRsImm,
+    &ParseRsImm,  /* 70... */
+    &ParseRsImm,
+    &ParseRsImm,
+    &ParseRtRdSa,
+    &ParseRtRdSa,
+    &ParseRtRdSa,  /* 75... */
+    &ParseRtRdSa,
+    &ParseRsRt,
+    &ParseRsRt,
+    &ParseRsRt,
+    &ParseRsRt,  /* 80... */
+    &ParseRsRt,
+    &ParseRsRt,
+    &ParseRsRt,
+    &ParseRsRt,
+    &ParseFmtFsFd,  /* 85... */
+    &ParseFmtFsFd,
+    &ParseFmtFsFd,
+    &ParseFmtFsFd,
+    &ParseFmtFsFd,
+    &ParseFmtFsFd,  /* 90... */
+    &ParseRsRdHint,
+    &ParseFmtFsFd,
+    &ParseFmtFsFd,
+    &ParseFmtFsFd,
+    &ParseFmtFsFd,  /* 95... */
+    &ParseFmtFsFd,
+    &ParseRsCcRd,
+    &ParseRsCcRd,
+    &ParseRsCcRd,
+    &ParseRsCcRd,  /* 100... */
+    &ParseRsHint,
+    &ParseFmtFtFsFd,
+    &ParseCode20,
+    &ParseFmtFtFsFd,
+    &ParseFmtRtFsFd,  /* 105... */
+    &ParseFmtRtFsFd,
+    &ParseFmtFtFsFd,
+    &ParseCode20,
+    &ParseFmtFtFsFd,
+    &ParseCode20,  /* 110... */
+    &ParseRsRtCode10,
+    &ParseRsRtCode10,
+    &ParseRsRtCode10,
+    &ParseRsRtCode10,
+    &ParseRsRtCode10,  /* 115... */
+    &ParseRsRtCode10,
+    &ParseCcOffset,
+    &ParseCcOffset,
+    &ParseCcOffset,
+    &ParseCcOffset,  /* 120... */
+    &ParseCcOffset,
+    &ParseCcOffset,
+    &ParseCcOffset,
+    &ParseCcOffset,
+    &ParseRtFs,  /* 125... */
+    &ParseRtFs,
+    &ParseRtFs,
+    &ParseRtFs,
+    &ParseRtFs,
+    &ParseRtFs,  /* 130... */
+    &ParseRtRdSa,
+    &ParseRtRdSel,
+    &ParseRtRdSel,
+    &ParseRtRdSel,
+    &ParseRtRdSel,  /* 135... */
+    0,
+    0,
+    0,
+    0,
+    0,  /* 140... */
+    0,
+    0,
+    0,
+    &ParseFmtFtFsCcCond,
+    &ParseRtImm,  /* 145... */
+    &ParseCofun,
+    &ParseRd,
+    &ParseRd,
+    &ParseRs,
+    &ParseRs,  /* 150... */
+    &ParseStype,
+    &ParseImp
 };
-
-static size_t masks_len = sizeof(masks) / sizeof(*masks);
-*/
-
 
 ///////////////////////////////////////////////////////////////////////////////
 /// function definitions
@@ -468,8 +776,8 @@ static size_t masks_len = sizeof(masks) / sizeof(*masks);
 /*
  * FindCorrespondingMnemonic - Finds mnemonic corresponding to given code.
  *
- * @code - code to get mnemonic.
- * @return - id value of the found mnemonic on success; -1 on failure.
+ * @code - Code to get mnemonic.
+ * @return - ID_MNEMONIC value of the found mnemonic on success; -1 on failure.
  */
 int FindCorrespondingMnemonic(int code) {
     FindCorrespondingMnemonicInMask0(code);
@@ -495,7 +803,374 @@ int FindCorrespondingMnemonic(int code) {
     FindCorrespondingMnemonicInMask20(code);
 }
 
-int test(int val) {
-    return 32;
+/*
+ * GetOperandFromCode - Parses to get operands from code.
+ *
+ * @code - Code to get operands.
+ * @mnem_id - Mnemonic id corresponding to given code.
+ * @operands - Pointer to struct that takes operands.
+ * @return - 0 on success; -1 on failure.
+ */
+int GetOperandFromCode(int code, int mnem_id, struct operands_t *operands) {
+
+    if ( mnem_id < 136 || 143 < mnem_id ) {
+        GetOperandFromCodeTable[mnem_id](code, operands);
+
+        return 0;
+    }
+    return -1;
+}
+
+/*
+ * ParseRsRtRd - Parses RS, RT, RD from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRsRtRd(int code, struct operands_t *operands) {
+    operands->rs = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->rt = (code & 0b00000000000111110000000000000000) >> 16;
+    operands->rd = (code & 0b00000000000000001111100000000000) >> 11;
+}
+
+/*
+ * ParseRsRtImm - Parses RS, RT, Immediate from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRsRtImm(int code, struct operands_t *operands) {
+    operands->rs = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->rt = (code & 0b00000000000111110000000000000000) >> 16;
+    operands->imm = code & 0b00000000000000001111111111111111;
+}
+
+/*
+ * ParseRsRtOffset - Parses RS, RT, Offset from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRsRtOffset(int code, struct operands_t *operands) {
+    operands->rs = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->rt = (code & 0b00000000000111110000000000000000) >> 16;
+    operands->offset = code & 0b00000000000000001111111111111111;
+}
+
+/*
+ * ParseBaseOffset - Parses Base, Offset from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseBaseOpOffset(int code, struct operands_t *operands) {
+    operands->base = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->op = (code & 0b00000000000111110000000000000000) >> 16;
+    operands->offset = code & 0b00000000000000001111111111111111;
+}
+
+/*
+ * ParseIdx - Parses Index from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseIdx(int code, struct operands_t *operands) {
+    operands->offset = code & 0b00000011111111111111111111111111;
+}
+
+/*
+ * ParseBaseRtOffset - Parses Base, RT, Offset from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseBaseRtOffset(int code, struct operands_t *operands) {
+    operands->base = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->rt = (code & 0b00000000000111110000000000000000) >> 16;
+    operands->offset = code & 0b00000000000000001111111111111111;
+}
+
+/*
+ * ParseBaseFtOffset - Parses Base, FT, Offset from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseBaseFtOffset(int code, struct operands_t *operands) {
+    operands->base = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->ft = (code & 0b00000011111000000000000000000000) >> 16;
+    operands->offset = code & 0b00000000000000001111111111111111;
+}
+
+/*
+ * ParseBaseHintOffset - Parses Base, Hint, Offset from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseBaseHintOffset(int code, struct operands_t *operands) {
+    operands->base = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->hint = (code & 0b00000000000111110000000000000000) >> 16;
+    operands->offset = code & 0b00000000000000001111111111111111;
+}
+
+/*
+ * ParseOffset - Parses Offset from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseOffset(int code, struct operands_t *operands) {
+    operands->offset = code & 0b00000000000000001111111111111111;
+}
+
+/*
+ * ParseRsOffset - Parses RS, Offset from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRsOffset(int code, struct operands_t *operands) {
+    operands->rs = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->offset = code & 0b00000000000000001111111111111111;
+}
+
+/*
+ * ParseRsImm - Parses RS, Immediate from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRsImm(int code, struct operands_t *operands) {
+    operands->rs = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->imm = code & 0b00000000000000001111111111111111;
+}
+
+/*
+ * ParseRtRdSa - Parses RT, RD, SA from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRtRdSa(int code, struct operands_t *operands) {
+    operands->rt = (code & 0b00000000000111110000000000000000) >> 16;
+    operands->rd = (code & 0b00000000000000001111100000000000) >> 11;
+    operands->sa = (code & 0b00000000000000000000011111000000) >> 6;
+}
+
+/*
+ * ParseRsRt - Parses RS, RT from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRsRt(int code, struct operands_t *operands) {
+    operands->rs = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->rt = (code & 0b00000000000111110000000000000000) >> 16;
+}
+
+/*
+ * ParseFmtFsFd - Parses Format, FS, FD from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseFmtFsFd(int code, struct operands_t *operands) {
+    operands->fmt = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->fs = (code & 0b00000000000000001111100000000000) >> 11;
+    operands->fd = (code & 0b00000000000000000000011111000000) >> 6;
+}
+
+/*
+ * ParseRsRdHint - Parses RS, RD, Hint from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRsRdHint(int code, struct operands_t *operands) {
+    operands->rs = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->rd = (code & 0b00000000000000001111100000000000) >> 11;
+    operands->hint = (code & 0b00000000000000000000011111000000) >> 6;
+}
+
+/*
+ * ParseRsCcRd - Parses RS, CC, RD from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRsCcRd(int code, struct operands_t *operands) {
+    operands->rs = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->cc = (code & 0b00000000000111000000000000000000) >> 18;
+    operands->rd = (code & 0b00000000000000001111100000000000) >> 11;
+}
+
+/*
+ * ParseRsHint - Parses Rs, Hint from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRsHint(int code, struct operands_t *operands) {
+    operands->rs = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->hint = (code & 0b00000000000000000000011111000000) >> 6;
+}
+
+/*
+ * ParseFmtFtFsFd - Parses Format, FT, FS, FD from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseFmtFtFsFd(int code, struct operands_t *operands) {
+    operands->fmt = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->ft = (code & 0b00000000000111110000000000000000) >> 16;
+    operands->fs = (code & 0b00000000000000001111100000000000) >> 11;
+    operands->fd = (code & 0b00000000000000000000011111000000) >> 6;
+}
+
+/*
+ * ParseCode20 - Parses code 20 bytes from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseCode20(int code, struct operands_t *operands) {
+    operands->code20 = (code & 0b00000011111111111111111111000000) >> 6;
+}
+
+/*
+ * ParseFmtRtFsFd - Parses Format, RT, FS, FD from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseFmtRtFsFd(int code, struct operands_t *operands) {
+    operands->fmt = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->rt = (code & 0b00000000000111110000000000000000) >> 16;
+    operands->fs = (code & 0b00000000000000001111100000000000) >> 11;
+    operands->fd = (code & 0b00000000000000000000011111000000) >> 6;
+}
+
+/*
+ * ParseRsRtCode10 - Parses RS, RT, Code 10bytes from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRsRtCode10(int code, struct operands_t *operands) {
+    operands->rs = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->rt = (code & 0b00000000000111110000000000000000) >> 16;
+    operands->code10 = (code & 0b00000000000000001111111111000000) >> 6;
+}
+
+/*
+ * ParseCcOffset - Parses CC, Offset from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseCcOffset(int code, struct operands_t *operands) {
+    operands->cc = (code & 0b00000000000111000000000000000000) >> 18;
+    operands->offset = code & 0b00000000000000001111111111111111;
+}
+
+/*
+ * ParseRtFs - Parses RT, FS from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRtFs(int code, struct operands_t *operands) {
+    operands->rt = (code & 0b00000000000111110000000000000000) >> 16;
+    operands->fs = (code & 0b00000000000000001111100000000000) >> 11;
+}
+
+/*
+ * ParseRtRdSel - Parses RT, RD, Select from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRtRdSel(int code, struct operands_t *operands) {
+    operands->rt = (code & 0b00000000000111110000000000000000) >> 16;
+    operands->rd = (code & 0b00000000000000001111100000000000) >> 11;
+    operands->sel = code & 0b00000000000000000000000000000111;
+}
+
+/*
+ * ParseFmtFtFsCcCond - Parses Format, FT, FS, CC, Cond from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseFmtFtFsCcCond(int code, struct operands_t *operands) {
+    operands->fmt = (code & 0b00000011111000000000000000000000) >> 21;
+    operands->ft = (code & 0b00000000000111110000000000000000) >> 16;
+    operands->fs = (code & 0b00000000000000001111100000000000) >> 11;
+    operands->cc = (code & 0b00000000000000000000011100000000) >> 8;
+    operands->cond = code & 0b00000000000000000000000000000111;
+}
+
+/*
+ * ParseRtImm - Parses RT, Immediate from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRtImm(int code, struct operands_t *operands) {
+    operands->rt = (code & 0b00000000000111110000000000000000) >> 16;
+    operands->imm = code & 0b00000000000000001111111111111111;
+}
+
+/*
+ * ParseCofun - Parses Cofun from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseCofun(int code, struct operands_t *operands) {
+    operands->cofun = code & 0b00000001111111111111111111111111;
+}
+
+/*
+ * ParseRd - Parses Rd from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRd(int code, struct operands_t *operands) {
+    operands->rd = (code & 0b00000000000000001111100000000000) >> 11;
+}
+
+/*
+ * ParseRs - Parses RS from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseRs(int code, struct operands_t *operands) {
+    operands->rd = (code & 0b00000011111000000000000000000000) >> 21;
+}
+
+/*
+ * ParseStype - Parses Stype from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseStype(int code, struct operands_t *operands) {
+    operands->stype = (code & 0b00000000000000000000011111000000) >> 6;
+}
+
+/*
+ * ParseImp - Parses Implement field from Code.
+ *
+ * @code - Code to be parsed.
+ * @operands - a struct to store operands parsed.
+ */
+static void ParseImp(int code, struct operands_t *operands) {
+    operands->imp = (code & 0b00000001111111111111111111000000) >> 6;
 }
 

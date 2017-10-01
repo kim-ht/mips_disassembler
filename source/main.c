@@ -2,25 +2,19 @@
  * by kimht
  */
 #include "./disassembler/disassembler.h"
+#include "./disassembler_printer/disassembler_printer.h"
+
+#define MACHINE_CODE 0b00000001000010010101100000100001
+                    //       ssssstttttddddd
 
 int main(void) {
-    printf("%x %x\n\n", 0x12345678, swap_endian32(0x12345678));
+    struct operands_t operands;
+    char buf[128];
 
-    printf("%d\n", FindCorrespondingMnemonic(123123312));
-    printf("%d\n", FindCorrespondingMnemonic(1233636));
-    printf("%d\n", FindCorrespondingMnemonic(232612));
-    printf("%d\n", FindCorrespondingMnemonic(34323129));
-    printf("%d\n", FindCorrespondingMnemonic(0xafc40020));
-    printf("%d\n", FindCorrespondingMnemonic(0x0c100148));
-    printf("%d\n", FindCorrespondingMnemonic(0x8c63000c));
-    printf("%d\n", FindCorrespondingMnemonic(0x27bdff20));
-    printf("%d\n", FindCorrespondingMnemonic(0x00200825));
-    printf("%d\n", FindCorrespondingMnemonic(0x00402021));
-    printf("%d\n", FindCorrespondingMnemonic(0x00200825));
-    printf("%d\n", FindCorrespondingMnemonic(0x00002821));
-    printf("%d\n", FindCorrespondingMnemonic(0x00403021));
+    GetOperandFromCode(MACHINE_CODE, FindCorrespondingMnemonic(MACHINE_CODE), &operands);
+    GetInstructionString(buf, ID_ADDU, &operands, 0x1000);
+    printf("%s\n", buf);
 
     return 0;
 }
-
 

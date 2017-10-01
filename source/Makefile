@@ -2,7 +2,7 @@
 #by kimht
 
 #macros
-OBJECTS = base.o disassembler.o
+OBJECTS = base.o disassembler.o disassembler_printer.o
 CC = gcc
 CFLAGS = -Wall -c
 
@@ -14,6 +14,9 @@ base.o: ./base/base.c ./base/base.h
 
 disassembler.o: ./disassembler/disassembler.c ./disassembler/disassembler.h
 	$(CC) $(CFLAGS) ./disassembler/disassembler.c
+
+disassembler_printer.o: ./disassembler_printer/disassembler_printer.c ./disassembler_printer/disassembler_printer.h
+	$(CC) $(CFLAGS) ./disassembler_printer/disassembler_printer.c
 
 clean:
 	rm $(OBJECTS) main

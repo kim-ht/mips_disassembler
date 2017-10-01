@@ -1266,15 +1266,56 @@
 ///////////////////////////////////////////////////////////////////////////////
 /// structs
 ///////////////////////////////////////////////////////////////////////////////
-struct mask_t {
-    int mask;
-    int mask_form;
+
+/*
+ * Structure to store operands of a machine code.
+ */
+struct operands_t {
+    int cc : 3;
+    int sel : 3;
+    int cond : 4;
+    int rs : 5;
+    int rt : 5;
+    int rd : 5;
+    int base : 5;
+    int op : 5;
+    int hint : 5;
+    int ft : 5;
+    int sa : 5;
+    int fs : 5;
+    int fd : 5;
+    int fmt : 5;
+    int stype : 5;
+    int code10 : 10;
+    int imm : 16;
+    int offset : 16;
+    int imp : 19;
+    int code20 : 20;
+    int cofun : 25;
+    int idx : 26;
 };
 
 ///////////////////////////////////////////////////////////////////////////////
 /// function prototypes
 ///////////////////////////////////////////////////////////////////////////////
+
+/*
+ * FindCorrespondingMnemonic - Finds mnemonic corresponding to given code.
+ *
+ * @code - Code to get mnemonic.
+ * @return - ID_MNEMONIC value of the found mnemonic on success; -1 on failure.
+ */
 int FindCorrespondingMnemonic(int code);
+
+/*
+ * GetOperandFromCode - Parses to get operands from code.
+ *
+ * @code - Code to get operands.
+ * @mnem_id - Mnemonic id corresponding to given code.
+ * @operands - Pointer to struct that takes operands.
+ * @return - 0 on success; -1 on failure.
+ */
+int GetOperandFromCode(int code, int mnem_id, struct operands_t *operands);
 
 #endif
 
