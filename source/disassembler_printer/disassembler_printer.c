@@ -7,6 +7,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 /// macro functions
 ///////////////////////////////////////////////////////////////////////////////
+#define StrGPR(r)  \
+    gpr_str[r & 0b11111]
 
 ///////////////////////////////////////////////////////////////////////////////
 /// function declarations
@@ -303,19 +305,19 @@ int GetInstructionString(char *buf, int mnem_id, struct operands_t *operands,
 static void GetInstructionStringRsRtRd(char *buf, int mnem_id,
     struct operands_t *operands, unsigned int addr) {
     sprintf(buf, "0x%08x    %s \t%s, %s, %s", addr, mnem_str[mnem_id],
-        gpr_str[operands->rd], gpr_str[operands->rs], gpr_str[operands->rt]);
+        StrGPR(operands->rd), StrGPR(operands->rs), StrGPR(operands->rt));
 }
 
 static void GetInstructionStringRsRtImm(char *buf, int mnem_id,
     struct operands_t *operands, unsigned int addr) {
     sprintf(buf, "0x%08x    %s \t%s, %s, 0x%x", addr, mnem_str[mnem_id],
-        gpr_str[operands->rt], gpr_str[operands->rs], operands->imm);
+        StrGPR(operands->rt), StrGPR(operands->rs), operands->imm);
 }
 
 static void GetInstructionStringRsRtOffset(char *buf, int mnem_id,
     struct operands_t *operands, unsigned int addr) {
     sprintf(buf, "0x%08x    %s \t%s, %s, 0x%x", addr, mnem_str[mnem_id],
-        gpr_str[operands->rs], gpr_str[operands->rt], operands->offset);
+        StrGPR(operands->rs), StrGPR(operands->rt), operands->offset);
 }
 
 // required to be modified.
@@ -333,7 +335,7 @@ static void GetInstructionStringIdx(char *buf, int mnem_id,
 static void GetInstructionStringBaseRtOffset(char *buf, int mnem_id,
     struct operands_t *operands, unsigned int addr) {
     sprintf(buf, "0x%08x    %s \t%s, 0x%x(%s)", addr, mnem_str[mnem_id],
-        gpr_str[operands->rt], operands->offset, gpr_str[operands->base]);
+        StrGPR(operands->rt), operands->offset, StrGPR(operands->base));
 }
 
 // required to be modified.
@@ -363,19 +365,19 @@ static void GetInstructionStringRsOffset(char *buf, int mnem_id,
 static void GetInstructionStringRsImm(char *buf, int mnem_id,
     struct operands_t *operands, unsigned int addr) {
     sprintf(buf, "0x%08x    %s \t%s, 0x%x", addr, mnem_str[mnem_id],
-        gpr_str[operands->rs], operands->imm);
+        StrGPR(operands->rs), operands->imm);
 }
 
 static void GetInstructionStringRtRdSa(char *buf, int mnem_id,
     struct operands_t *operands, unsigned int addr) {
     sprintf(buf, "0x%08x    %s \t%s, %s, 0x%x", addr, mnem_str[mnem_id],
-        gpr_str[operands->rd], gpr_str[operands->rt], operands->sa);
+        StrGPR(operands->rd), StrGPR(operands->rt), operands->sa);
 }
 
 static void GetInstructionStringRsRt(char *buf, int mnem_id,
     struct operands_t *operands, unsigned int addr) {
     sprintf(buf, "0x%08x    %s \t%s, %s", addr, mnem_str[mnem_id],
-        gpr_str[operands->rs], gpr_str[operands->rt]);
+        StrGPR(operands->rs), StrGPR(operands->rt));
 }
 
 // required to be modified.
@@ -459,7 +461,7 @@ static void GetInstructionStringFmtFtFsCcCond(char *buf, int mnem_id,
 static void GetInstructionStringRtImm(char *buf, int mnem_id,
     struct operands_t *operands, unsigned int addr) {
     sprintf(buf, "0x%08x    %s \t%s 0x%x", addr, mnem_str[mnem_id],
-        gpr_str[operands->rt], operands->imm);
+        StrGPR(operands->rt), operands->imm);
 }
 
 // required to be modified.
@@ -471,13 +473,13 @@ static void GetInstructionStringCofun(char *buf, int mnem_id,
 static void GetInstructionStringRd(char *buf, int mnem_id,
     struct operands_t *operands, unsigned int addr) {
     sprintf(buf, "0x%08x    %s \t%s", addr, mnem_str[mnem_id],
-        gpr_str[operands->rd]);
+        StrGPR(operands->rd));
 }
 
 static void GetInstructionStringRs(char *buf, int mnem_id,
     struct operands_t *operands, unsigned int addr) {
     sprintf(buf, "0x%08x    %s \t%s", addr, mnem_str[mnem_id],
-        gpr_str[operands->rs]);
+        StrGPR(operands->rs));
 }
 
 // required to be modified.
