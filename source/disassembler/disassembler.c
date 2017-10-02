@@ -68,7 +68,7 @@
         return ID_ADDI;  \
     case MASK_ADDIU:  \
         return ID_ADDIU;  \
-    case MASK_AND_IMM:  \
+    case MASK_ANDI:  \
         return ID_AND;  \
     case MASK_BEQ:  \
         return ID_BEQ;  \
@@ -574,37 +574,37 @@
 ///////////////////////////////////////////////////////////////////////////////
 /// function declarations
 ///////////////////////////////////////////////////////////////////////////////
-static void ParseRsRtRd(int code, struct operands_t *);
-static void ParseRsRtImm(int code, struct operands_t *);
-static void ParseRsRtOffset(int code, struct operands_t *);
-static void ParseBaseOpOffset(int code, struct operands_t *);
-static void ParseIdx(int code, struct operands_t *);
-static void ParseBaseRtOffset(int code, struct operands_t *);
-static void ParseBaseFtOffset(int code, struct operands_t *);
-static void ParseBaseHintOffset(int code, struct operands_t *);
-static void ParseOffset(int code, struct operands_t *);
-static void ParseRsOffset(int code, struct operands_t *);
-static void ParseRsImm(int code, struct operands_t *);
-static void ParseRtRdSa(int code, struct operands_t *);
-static void ParseRsRt(int code, struct operands_t *);
-static void ParseFmtFsFd(int code, struct operands_t *);
-static void ParseRsRdHint(int code, struct operands_t *);
-static void ParseRsCcRd(int code, struct operands_t *);
-static void ParseRsHint(int code, struct operands_t *);
-static void ParseFmtFtFsFd(int code, struct operands_t *);
-static void ParseCode20(int code, struct operands_t *);
-static void ParseFmtRtFsFd(int code, struct operands_t *);
-static void ParseRsRtCode10(int code, struct operands_t *);
-static void ParseCcOffset(int code, struct operands_t *);
-static void ParseRtFs(int code, struct operands_t *);
-static void ParseRtRdSel(int code, struct operands_t *);
-static void ParseFmtFtFsCcCond(int code, struct operands_t *);
-static void ParseRtImm(int code, struct operands_t *);
-static void ParseCofun(int code, struct operands_t *);
-static void ParseRd(int code, struct operands_t *);
-static void ParseRs(int code, struct operands_t *);
-static void ParseStype(int code, struct operands_t *);
-static void ParseImp(int code, struct operands_t *);
+static void ParseRsRtRd(int code, struct operands_t * operands);
+static void ParseRsRtImm(int code, struct operands_t * operands);
+static void ParseRsRtOffset(int code, struct operands_t * operands);
+static void ParseBaseOpOffset(int code, struct operands_t * operands);
+static void ParseIdx(int code, struct operands_t * operands);
+static void ParseBaseRtOffset(int code, struct operands_t * operands);
+static void ParseBaseFtOffset(int code, struct operands_t * operands);
+static void ParseBaseHintOffset(int code, struct operands_t * operands);
+static void ParseOffset(int code, struct operands_t * operands);
+static void ParseRsOffset(int code, struct operands_t * operands);
+static void ParseRsImm(int code, struct operands_t * operands);
+static void ParseRtRdSa(int code, struct operands_t * operands);
+static void ParseRsRt(int code, struct operands_t * operands);
+static void ParseFmtFsFd(int code, struct operands_t * operands);
+static void ParseRsRdHint(int code, struct operands_t * operands);
+static void ParseRsCcRd(int code, struct operands_t * operands);
+static void ParseRsHint(int code, struct operands_t * operands);
+static void ParseFmtFtFsFd(int code, struct operands_t * operands);
+static void ParseCode20(int code, struct operands_t * operands);
+static void ParseFmtRtFsFd(int code, struct operands_t * operands);
+static void ParseRsRtCode10(int code, struct operands_t * operands);
+static void ParseCcOffset(int code, struct operands_t * operands);
+static void ParseRtFs(int code, struct operands_t * operands);
+static void ParseRtRdSel(int code, struct operands_t * operands);
+static void ParseFmtFtFsCcCond(int code, struct operands_t * operands);
+static void ParseRtImm(int code, struct operands_t * operands);
+static void ParseCofun(int code, struct operands_t * operands);
+static void ParseRd(int code, struct operands_t * operands);
+static void ParseRs(int code, struct operands_t * operands);
+static void ParseStype(int code, struct operands_t * operands);
+static void ParseImp(int code, struct operands_t * operands);
 
 ///////////////////////////////////////////////////////////////////////////////
 /// variables
